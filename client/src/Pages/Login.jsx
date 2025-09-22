@@ -37,9 +37,7 @@ const Login = () => {
             toast.success('Account created successfully!');
 
             // Fetch user data
-            getUserData().catch(() => {
-              console.log('Could not fetch user data, but account was created');
-            });
+            getUserData().catch(() => console.log('Could not fetch user data, but account was created'));
           } else {
             toast.error(data.message || 'Account creation failed');
           }
@@ -62,9 +60,7 @@ const Login = () => {
             toast.success('Login successful!');
 
             // Fetch user data
-            getUserData().catch(() => {
-              console.log('Could not fetch user data, but login was successful');
-            });
+            getUserData().catch(() => console.log('Could not fetch user data, but login was successful'));
           } else {
             toast.error(data.message || 'Login failed');
           }
@@ -87,7 +83,7 @@ const Login = () => {
       style={{
         background: 'linear-gradient(135deg, #f5e6d3 0%, #e8d5c4 50%, #d4c4b7 100%)',
         backgroundImage:
-          'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Ccircle cx="30" cy="30" r="4"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
+          'url("data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.1\"%3E%3Ccircle cx=\"30\" cy=\"30\" r=\"4\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
       }}
     >
       <div className='bg-white/90 backdrop-blur-sm p-10 rounded-2xl shadow-xl w-full sm:w-96 text-sm border border-white/20'>
