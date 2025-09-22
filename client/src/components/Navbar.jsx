@@ -32,7 +32,8 @@ const Navbar = () => {
       </div>
       <div className="right-group">
         <div className="nav-links">
-          <NavLink to="/" className={({isActive}) => isActive ? 'nav-link active' : 'nav-link'} end>Dashboard</NavLink>
+          <NavLink to="/home" className={({isActive}) => isActive ? 'nav-link active' : 'nav-link'}>Home</NavLink>
+          <NavLink to="/dashboard" className={({isActive}) => isActive ? 'nav-link active' : 'nav-link'}>Dashboard</NavLink>
           <NavLink to="/transactions" className={({isActive}) => isActive ? 'nav-link active' : 'nav-link'}>Transactions</NavLink>
           <NavLink to="/budget" className={({isActive}) => isActive ? 'nav-link active' : 'nav-link'}>Budget</NavLink>
           <NavLink to="/reports" className={({isActive}) => isActive ? 'nav-link active' : 'nav-link'}>Reports</NavLink>

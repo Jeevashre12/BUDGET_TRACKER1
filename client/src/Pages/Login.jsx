@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -79,125 +80,110 @@ const Login = () => {
 
   return (
     <div
-      className='flex items-center justify-center min-h-screen px-6 sm:px-0'
-      style={{
-        background: 'linear-gradient(135deg, #f5e6d3 0%, #e8d5c4 50%, #d4c4b7 100%)',
-        backgroundImage:
-          'url("data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.1\"%3E%3Ccircle cx=\"30\" cy=\"30\" r=\"4\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
-      }}
+      className='flex items-center justify-center min-h-screen bg-[#1c1b29] w-full overflow-hidden'
     >
-      <div className='bg-white/90 backdrop-blur-sm p-10 rounded-2xl shadow-xl w-full sm:w-96 text-sm border border-white/20'>
-        <h2 className='text-3xl font-semibold text-[#5a4a42] text-center mb-3'>
-          {state === 'Sign up' ? 'Create Your Account' : 'Login to Your Account'}
-        </h2>
-        <p className='text-center text-sm mb-6 text-[#8b7355]'>
-          {state === 'Sign up'
-            ? 'Please fill in the details to create your account.'
-            : 'Welcome back! Please login to continue.'}
-        </p>
-
-        <div className='my-4 flex items-center gap-2'>
-          <div className='h-px bg-[#e7ddd6] flex-1' />
-          <span className='text-[#8b7355] text-xs'>OR</span>
-          <div className='h-px bg-[#e7ddd6] flex-1' />
+      {/* Animation Section */}
+      <div className='w-1/2 h-screen flex items-center justify-center bg-[#2e2d3a]'>
+        <DotLottieReact
+         src="https://lottie.host/47b41151-b490-4e72-b5ea-59c7ca0ad724/EdJ8BI9nf1.lottie"
+          loop
+          autoplay
+          style={{ width: '80%', height: '150%', imageRendering: 'auto' }}
+        />
+        <div className='absolute bottom-10 text-center text-gray-300'>
+         
         </div>
+      </div>
 
-        <form onSubmit={onSubmitHandler}>
-          {state === 'Sign up' && (
-            <div className='mb-4 flex items-center gap-3 w-full px-5 py-3 rounded-full bg-[#f8f4f0] border border-[#e7ddd6]'>
-              <img src={assets.person_icon} alt='' className='w-5 h-5 opacity-60' />
+      {/* Form Section */}
+      <div className='w-1/2 h-screen flex items-center justify-center bg-[#1c1b29]'>
+        <div className='p-12 rounded-3xl shadow-2xl w-full sm:w-96 text-sm border border-gray-600'>
+          <h2 className='text-4xl font-bold text-gray-300 text-center mb-4'>
+            {state === 'Sign up' ? 'Create an account' : 'Login'}
+          </h2>
+          <p className='text-center text-sm mb-8 text-gray-400'>
+            {state === 'Sign up'
+              ? 'Already have an account? '
+              : 'Don’t have an account? '}
+            <span
+              onClick={() => setState(state === 'Sign up' ? 'Login' : 'Sign up')}
+              className='text-purple-500 cursor-pointer underline'
+            >
+              {state === 'Sign up' ? 'Log In' : 'Sign Up'}
+            </span>
+          </p>
+
+          <form onSubmit={onSubmitHandler} className='space-y-6'>
+            {state === 'Sign up' && (
+              <div className='mb-6'>
+                <label className='block text-gray-400 mb-2'>Full Name</label>
+                <input
+                  onChange={(e) => setName(e.target.value)}
+                  value={name}
+                  type='text'
+                  placeholder='Enter your full name'
+                  required
+                  disabled={isLoading}
+                  className='w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-md bg-[#2e2d3a] text-gray-300'
+                />
+              </div>
+            )}
+
+            <div className='mb-6'>
+              <label className='block text-gray-400 mb-2'>Email</label>
               <input
-                onChange={(e) => setName(e.target.value)}
-                value={name}
-                type='text'
-                placeholder='Full Name'
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+                type='email'
+                placeholder='Enter your email'
                 required
                 disabled={isLoading}
-                className='flex-1 bg-transparent border-none outline-none text-[#5a4a42] placeholder-[#a89b8c] disabled:opacity-50'
+                className='w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-md bg-[#2e2d3a] text-gray-300'
               />
             </div>
-          )}
 
-          <div className='mb-4 flex items-center gap-3 w-full px-5 py-3 rounded-full bg-[#f8f4f0] border border-[#e7ddd6]'>
-            <img src={assets.mail_icon} alt='' className='w-5 h-5 opacity-60' />
-            <input
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
-              type='email'
-              placeholder='Email id'
-              required
-              disabled={isLoading}
-              className='flex-1 bg-transparent border-none outline-none text-[#5a4a42] placeholder-[#a89b8c] disabled:opacity-50'
-            />
-          </div>
+            <div className='mb-6'>
+              <label className='block text-gray-400 mb-2'>Password</label>
+              <input
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+                type='password'
+                placeholder='Enter your password'
+                required
+                disabled={isLoading}
+                className='w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-md bg-[#2e2d3a] text-gray-300'
+              />
+            </div>
 
-          <div className='mb-4 flex items-center gap-3 w-full px-5 py-3 rounded-full bg-[#f8f4f0] border border-[#e7ddd6]'>
-            <img src={assets.lock_icon} alt='' className='w-5 h-5 opacity-60' />
-            <input
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
-              type='password'
-              placeholder='Password'
-              required
-              disabled={isLoading}
-              className='flex-1 bg-transparent border-none outline-none text-[#5a4a42] placeholder-[#a89b8c] disabled:opacity-50'
-            />
-          </div>
-
-          <p
-            onClick={() => !isLoading && navigate('/reset-password')}
-            className={`mb-4 text-[#8b7355] cursor-pointer hover:text-[#5a4a42] transition-colors ${
-              isLoading ? 'opacity-50 cursor-not-allowed' : ''
-            }`}
-          >
-            Forget Password?
-          </p>
-
-          <button
-            type='submit'
-            disabled={isLoading}
-            className={`w-full py-3 rounded-full font-semibold transition-all duration-200 ${
-              isLoading
-                ? 'bg-[#d4c4b7] cursor-not-allowed text-[#8b7355]'
-                : 'bg-gradient-to-r from-[#5a4a42] to-[#8b7355] text-white hover:from-[#4a3d37] hover:to-[#7a6b5a] shadow-lg'
-            }`}
-          >
-            {isLoading ? (
-              <div className='flex items-center justify-center gap-2'>
-                <div className='w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin'></div>
-                {state === 'Sign up' ? 'Creating Account...' : 'Logging In...'}
-              </div>
-            ) : (
-              state
-            )}
-          </button>
-        </form>
-
-        {state === 'Sign up' ? (
-          <p className='text-gray-400 text-center text-xs mt-4'>
-            Already have an account?{' '}
-            <span
-              onClick={() => !isLoading && setState('Login')}
-              className={`text-blue-400 cursor-pointer underline ${
+            <p
+              onClick={() => !isLoading && navigate('/reset-password')}
+              className={`text-sm text-purple-500 cursor-pointer hover:underline transition-colors ${
                 isLoading ? 'opacity-50 cursor-not-allowed' : ''
               }`}
             >
-              Login here
-            </span>
-          </p>
-        ) : (
-          <p className='text-gray-400 text-center text-xs mt-4'>
-            Don't have an account?{' '}
-            <span
-              onClick={() => !isLoading && setState('Sign up')}
-              className={`text-blue-400 cursor-pointer underline ${
-                isLoading ? 'opacity-50 cursor-not-allowed' : ''
+              Forgot Password?
+            </p>
+
+            <button
+              type='submit'
+              disabled={isLoading}
+              className={`w-full py-3 rounded-lg font-semibold text-white transition-all duration-300 shadow-lg ${
+                isLoading
+                  ? 'bg-gray-600 cursor-not-allowed'
+                  : 'bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700'
               }`}
             >
-              Sign Up
-            </span>
-          </p>
-        )}
+              {isLoading ? (
+                <div className='flex items-center justify-center gap-2'>
+                  <div className='w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin'></div>
+                  {state === 'Sign up' ? 'Signing Up...' : 'Logging In...'}
+                </div>
+              ) : (
+                state === 'Sign up' ? 'Create Account' : 'Log In'
+              )}
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );
