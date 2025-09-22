@@ -7,3 +7,8 @@
 *{
   font-family: "Outfit",sans-serif;
 }
+
+/* Offset for fixed navbar (height: 130px) */
+.page-container {
+  padding-top: 130px;
+}

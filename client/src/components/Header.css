@@ -1,0 +1,57 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px; /* Moves content down from Navbar */
+  padding: 20px 10px 100px 16px; /* Top 20px, Bottom 100px to show BG below */
+  text-align: center;
+  color: #fff; /* Text looks better on dark BG */
+  background: none;
+}
+
+.header-img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  margin-bottom: 16px;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.wave-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.header-subtitle {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.header-text {
+  max-width: 400px;
+  margin-bottom: 32px;
+  font-size: 16px;
+}
+
+.header-btn {
+  border: 1px solid #fff;
+  border-radius: 30px;
+  padding: 10px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  background: rgba(255,255,255,0.1);
+  transition: 0.3s;
+}
+
+.header-btn:hover {
+  background: rgba(255,255,255,0.3);
+}
