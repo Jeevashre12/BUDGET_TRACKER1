@@ -1,29 +1,83 @@
 .home {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  min-height: 100vh;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 90vh; /* Reduced height to create gap */
   width: 100%;
-  background: url('../assets/bg.jpg') no-repeat center center;
-  background-size: cover;
+  background: #f5f5f5; /* Background color */
   position: relative;
   margin-top: 0; /* Global offset handled by .page-container padding */
 }
 
-.home::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
-  z-index: 0;
+.home-content {
+  flex: 1;
+  padding: 20px;
+  text-align: left;
+  margin-top: 20px;
+  margin-left: 70px;
 }
 
-.home > * {
-  position: relative;
-  z-index: 1;
+/* Half black / half #32175f text effect */
+.home-content h1,
+.home-content h2,
+.home-content p {
+  background: linear-gradient(to right, #000 50%, #32175f 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* fallback */
+}
+
+.home-content h1 {
+  font-size: 2.8rem; /* smaller than before */
+  font-weight: 700;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.home-content h2 {
+  font-size: 2rem; /* smaller */
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.home-content p {
+  font-size: 1rem; /* smaller paragraph */
+  line-height: 1.6;
+  margin-bottom: 25px;
+  max-width: 500px;
+}
+
+.home-content button {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 12px;
+  background: #32175f; /* match text color */
   color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.home-content button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Right side for image */
+.home-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: calc(90vh - 20px); /* Reduced height with gap */
+  width: auto; /* Maintain aspect ratio */
+}
+
+.home-image img {
+  max-width: 750px; /* smaller image */
+  height: 600px;
 }
