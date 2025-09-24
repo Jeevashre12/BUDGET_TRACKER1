@@ -2,16 +2,20 @@ import express from "express";
 import cors from "cors";
 import "dotenv/config";
 import cookieParser from "cookie-parser";
+import path from "path";
+import { fileURLToPath } from "url";
+import bcrypt from "bcryptjs";
 import connectDB from "./config/mongodb.js";
+import { connectRecipesDB } from './config/mongodbRecipes.js';
 import authRouter from "./routes/authRoutes.js";
 import userRouter from "./routes/userRoutes.js";
 import adminRouter from "./routes/adminRoutes.js";
-import bcrypt from "bcryptjs";
-import userModel from "./models/userModel.js";  
-import recipeRouter from './routes/recipeRoutes.js';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import { connectRecipesDB } from './config/mongodbRecipes.js';
+import recipeRouter from "./routes/recipeRoutes.js";
+import budgetRouter from "./routes/budgetRoutes.js";
+import transactionRouter from "./routes/transactionRoutes.js";
+import salaryRouter from "./routes/salaryRoutes.js";
+import plannedRouter from "./routes/plannedRoutes.js";
+import userModel from "./models/userModel.js";
 
 // Initialize app FIRST
 const app = express();
@@ -40,7 +44,11 @@ app.get("/", (req, res) => res.send("API working ✅"));
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
 app.use("/api/admin", adminRouter);
-app.use('/api/recipes', recipeRouter); // <--- move this AFTER app is defined
+app.use('/api/recipes', recipeRouter);
+app.use('/api/budgets', budgetRouter);
+app.use('/api/transactions', transactionRouter);
+app.use('/api/salary', salaryRouter);
+app.use('/api/planned', plannedRouter);
 
 // Serve uploads statically (for local image fallback)
 const __filename = fileURLToPath(import.meta.url);
