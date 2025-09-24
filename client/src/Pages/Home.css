@@ -27,6 +27,62 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent; /* fallback */
+<<<<<<< HEAD
+=======
+}
+
+.home-content h1 {
+  font-size: 2.8rem; /* smaller than before */
+  font-weight: 700;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.home-content h2 {
+  font-size: 2rem; /* smaller */
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.home-content p {
+  font-size: 1rem; /* smaller paragraph */
+  line-height: 1.6;
+  margin-bottom: 25px;
+  max-width: 500px;
+}
+
+.home-content button {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 12px;
+  background: #32175f; /* match text color */
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.home-content button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Right side for image */
+.home-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: calc(90vh - 20px); /* Reduced height with gap */
+  width: auto; /* Maintain aspect ratio */
+}
+
+.home-image img {
+  max-width: 750px; /* smaller image */
+  height: 600px;
+>>>>>>> auth
 }
 
 .home-content h1 {
