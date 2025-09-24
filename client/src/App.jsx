@@ -40,6 +40,7 @@ const App = () => {
           <Route path='/admin/login' element={<AdminLogin />} />
           <Route path='/admin/dashboard' element={<AdminDashboard />} />
           <Route path='/enter-email' element={<EnterEmail />} />
+          <Route path='/home' element={<Home />} />
         </Routes>
       </div>
     </AppContextProvider>
