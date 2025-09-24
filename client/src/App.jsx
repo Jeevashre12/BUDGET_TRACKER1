@@ -9,6 +9,7 @@ import ResetPassword from './Pages/ResetPassword';
 import AdminLogin from './Pages/AdminLogin';
 import AdminDashboard from './Pages/AdminDashboard';
 import EnterEmail from './Pages/EnterEmail';
+import BudgetingPage from './Pages/BudgetingPage.jsx';
 
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
@@ -24,6 +25,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
+          <Route path='/budgeting' element={<BudgetingPage />} />
           <Route
             path='/my-recipes'
             element={
