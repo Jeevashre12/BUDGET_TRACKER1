@@ -8,7 +8,7 @@
 .brand-name {
   font-family: 'Roboto', sans-serif;
   font-size: 24px;
-  color: #2c3e50;
+  color: #e9d5ff; /* light purple */
   letter-spacing: 1px;
 }
 
@@ -19,13 +19,13 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  background: #ecf0f1;
-  border-bottom: 2px solid #bdc3c7;
+  background: linear-gradient(135deg, #0f0b1a 0%, #171129 50%, #1e163b 100%);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
   position: fixed; /* Keeps it on top */
   top: 0;
   left: 0;
   z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.15);
 }
 
 .navbar-logo {  height: 120px;
@@ -49,19 +49,19 @@
 }
 
 .nav-link {
-  color: #34495e;
+  color: rgba(255,255,255,0.75);
   text-decoration: none;
   padding: 8px 12px;
-  border-radius: 6px;
+  border-radius: 999px;
 }
 
 .nav-link:hover {
-  background: rgba(52, 73, 94, 0.1);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .nav-link.active {
-  background: #34495e;
-  color: #ecf0f1;
+  background: linear-gradient(90deg, #7c3aed, #a855f7);
+  color: #fff;
 }
 
 
@@ -75,25 +75,26 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  border: 1px solid #34495e;
+  border: 1px solid rgba(255,255,255,0.16);
   border-radius: 30px;
   padding: 10px 20px;
-  color: #34495e;
+  color: #e9d5ff;
   margin-right: 0;
-  background: none;
+  background: rgba(255,255,255,0.06);
   cursor: pointer;
   margin-bottom: 0;
   transition: 0.3s;
 }
 
 .login-btn:hover {
-  background: rgba(52, 73, 94, 0.1);
+  background: linear-gradient(90deg, #7c3aed, #a855f7);
+  color: #fff;
 }
 
 .user-avatar {
   width: 40px;
   height: 40px;
-  background: #34495e;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
   color: white;
   display: flex;
   justify-content: center;
@@ -109,8 +110,9 @@
   position: absolute;
   top: 45px;
   right: 0;
-  background: #f9f9f9;
-  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  background: #20173a;
+  color: #fff;
+  box-shadow: 0px 10px 24px rgba(124,58,237,0.25);
   border-radius: 6px;
 }
 
@@ -130,5 +132,5 @@
 }
 
 .dropdown li:hover {
-  background: #eee;
+  background: rgba(255,255,255,0.08);
 }

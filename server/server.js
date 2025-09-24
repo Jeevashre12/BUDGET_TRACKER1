@@ -9,6 +9,9 @@ import adminRouter from "./routes/adminRoutes.js";
 import bcrypt from "bcryptjs";
 import userModel from "./models/userModel.js";  
 import recipeRouter from './routes/recipeRoutes.js';
+import transactionRouter from './routes/transactionRoutes.js';
+import budgetRouter from './routes/budgetRoutes.js';
+import summaryRouter from './routes/summaryRoutes.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { connectRecipesDB } from './config/mongodbRecipes.js';
@@ -41,6 +44,9 @@ app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
 app.use("/api/admin", adminRouter);
 app.use('/api/recipes', recipeRouter); // <--- move this AFTER app is defined
+app.use('/api/transactions', transactionRouter);
+app.use('/api/budgets', budgetRouter);
+app.use('/api/finance', summaryRouter);
 
 // Serve uploads statically (for local image fallback)
 const __filename = fileURLToPath(import.meta.url);

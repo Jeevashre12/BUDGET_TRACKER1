@@ -12,3 +12,8 @@
 .page-container {
   padding-top: 130px;
 }
+
+/* Optional utility for purple gradient backgrounds */
+.purple-gradient-bg {
+  background: linear-gradient(135deg, #0f0b1a 0%, #171129 50%, #1e163b 100%);
+}

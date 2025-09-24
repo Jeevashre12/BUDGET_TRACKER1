@@ -1,6 +1,10 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './Pages/Home';
+import Dashboard from './Pages/Dashboard.jsx';
+import Transactions from './Pages/Transactions.jsx';
+import Budget from './Pages/Budget.jsx';
+import Reports from './Pages/Reports.jsx';
 import About from './Pages/About';
 import ProtectedRoute from './components/ProtectedRoute';
 import Login from './Pages/Login';
@@ -22,16 +26,43 @@ const App = () => {
         <ToastContainer />
         <Navbar />
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/about' element={<About />} />
+          {/* Finance Dashboard */}
           <Route
-            path='/my-recipes'
+            path='/'
             element={
               <ProtectedRoute>
-                <div>My Recipes</div>
+                <Dashboard />
               </ProtectedRoute>
             }
           />
+          <Route
+            path='/transactions'
+            element={
+              <ProtectedRoute>
+                <Transactions />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/budget'
+            element={
+              <ProtectedRoute>
+                <Budget />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/reports'
+            element={
+              <ProtectedRoute>
+                <Reports />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Existing routes */}
+          <Route path='/about' element={<About />} />
+          <Route path='/my-recipes' element={<ProtectedRoute><div>My Recipes</div></ProtectedRoute>} />
           <Route path='/login' element={<Login />} />
           <Route path='/email-verify' element={<EmailVerify />} />
           <Route path='/reset-password' element={<ResetPassword />} />
